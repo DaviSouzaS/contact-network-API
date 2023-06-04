@@ -1,9 +1,10 @@
 import { getRounds, hashSync } from "bcryptjs"
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, BeforeInsert, BeforeUpdate } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, BeforeInsert, BeforeUpdate, OneToMany } from "typeorm"
+import { Contact } from "./contact.entity"
 
 @Entity("client")
 export class Client {
-
+    
     @PrimaryGeneratedColumn("increment")
     id: number
 
@@ -31,4 +32,7 @@ export class Client {
             this.password = hashSync(this.password, 10)
         }
     }
+
+    @OneToMany(() => Contact, (contact) => contact.client)
+    contacts: Contact[]
 }
