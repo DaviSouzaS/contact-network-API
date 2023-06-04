@@ -4,18 +4,18 @@ import { Repository } from "typeorm"
 import { AppError } from "../error"
 import { Client } from "../entities"
 
-export const ensureUniqueEmail = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+export const ensureUniquePhone = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
 
-    const email: string = request.body.email
+    const phone: string = request.body.phone
 
     const clientsRepo: Repository<Client> = AppDataSource.getRepository(Client)
 
     const client: Client | null = await clientsRepo.findOneBy({
-        email: email
+        phone: phone
     })
 
     if (client !== null) {
-        throw new AppError('Email is already being used', 409)
+        throw new AppError('Phone number is already being used', 409)
     }
 
     return next()
