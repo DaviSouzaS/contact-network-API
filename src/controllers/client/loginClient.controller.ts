@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { iLoginClient } from "../../interfaces/client/loginClient.interface"
 import { loginClientService } from "../../services/client/loginClient.service"
 
-export const createClientController = async (request: Request, response: Response): Promise<Response> => {
+export const loginClientController = async (request: Request, response: Response): Promise<Response> => {
 
     const loginData: iLoginClient = request.body
 
