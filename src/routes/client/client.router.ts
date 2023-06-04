@@ -8,3 +8,4 @@ import { Router } from "express"
 export const clientRouter: Router = Router()
 
 clientRouter.post('', validateData(createClientSchema), ensureUniqueEmail, ensureUniquePhone, createClientController)
+clientRouter.post('/login')
