@@ -8,6 +8,10 @@ export const ensureUniqueEmail = async (request: Request, response: Response, ne
 
     const email: string = request.body.email
 
+    if (!email) {
+        return next()
+    }
+
     const clientsRepo: Repository<Client> = AppDataSource.getRepository(Client)
 
     const client: Client | null = await clientsRepo.findOneBy({
