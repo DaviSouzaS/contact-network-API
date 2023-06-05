@@ -12,6 +12,7 @@ import { ensureClientIsOwner } from "../../middlewares/ensureClientIsOwner.middl
 import { ensureClientExist } from "../../middlewares/ensureClientExist.middlewares"
 import { updateClientSchema } from "../../schemas/client/updateClient.schema"
 import { updateClientController } from "../../controllers/client/updateClient.controller"
+import { deleteClientController } from "../../controllers/client/deleteCreate.controller"
 
 export const clientRouter: Router = Router()
 
@@ -19,3 +20,4 @@ clientRouter.post('', validateData(createClientSchema), ensureUniqueEmail, ensur
 clientRouter.post('/login', validateData(loginClientSchema), loginClientController)
 clientRouter.get('/:id', validateToken, ensureClientExist, ensureClientIsOwner, readClientController)
 clientRouter.patch('/:id', validateToken, ensureClientExist, ensureClientIsOwner, validateData(updateClientSchema), ensureUniqueEmail, ensureUniquePhone, updateClientController)
+clientRouter.delete('/:id', validateToken, ensureClientExist, ensureClientIsOwner, deleteClientController)
