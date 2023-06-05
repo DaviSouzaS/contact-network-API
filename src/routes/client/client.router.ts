@@ -10,9 +10,12 @@ import { readClientController } from "../../controllers/client/readClient.contro
 import { validateToken } from "../../middlewares/validateToken.middleware"
 import { ensureClientIsOwner } from "../../middlewares/ensureClientIsOwner.middleware"
 import { ensureClientExist } from "../../middlewares/ensureClientExist.middlewares"
+import { updateClientSchema } from "../../schemas/client/updateClient.schema"
+import { updateClientController } from "../../controllers/client/updateClient.controller"
 
 export const clientRouter: Router = Router()
 
 clientRouter.post('', validateData(createClientSchema), ensureUniqueEmail, ensureUniquePhone, createClientController)
 clientRouter.post('/login', validateData(loginClientSchema), loginClientController)
 clientRouter.get('/:id', validateToken, ensureClientExist, ensureClientIsOwner, readClientController)
+clientRouter.patch('/:id', validateToken, ensureClientExist, ensureClientIsOwner, validateData(updateClientSchema), ensureUniqueEmail, ensureUniquePhone, updateClientController)

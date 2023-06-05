@@ -8,6 +8,10 @@ export const ensureUniquePhone = async (request: Request, response: Response, ne
 
     const phone: string = request.body.phone
 
+    if (!phone) {
+        return next()
+    }
+
     const clientsRepo: Repository<Client> = AppDataSource.getRepository(Client)
 
     const client: Client | null = await clientsRepo.findOneBy({
