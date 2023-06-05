@@ -11,6 +11,7 @@ import { ensureClientIsOwnerOfContact } from "../../middlewares/ensureClientIsOw
 import { readContactsController } from "../../controllers/contact/readContacts.controller"
 import { updateContactController } from "../../controllers/contact/updateContact.controller"
 import { updateContactSchema } from "../../schemas/contact/updateContact.schemas"
+import { deleteContactController } from "../../controllers/contact/deleteCreate.controller"
 
 export const contactRouter: Router = Router()
 
@@ -18,3 +19,4 @@ contactRouter.post('/:id', validateToken, ensureClientExist, ensureClientIsOwner
 contactRouter.get('/:id', validateToken, ensureContactExist, ensureClientIsOwnerOfContact, readContactController),
 contactRouter.get('/all/:id', validateToken, ensureClientExist, ensureClientIsOwner, readContactsController)
 contactRouter.patch('/:id', validateToken, ensureContactExist, ensureClientIsOwnerOfContact, validateData(updateContactSchema), updateContactController)
+contactRouter.delete('/:id', validateToken, ensureContactExist, ensureClientIsOwnerOfContact, deleteContactController)
