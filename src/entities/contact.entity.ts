@@ -10,10 +10,10 @@ export class Contact {
     @Column({ length: 50 })
     name: string
 
-    @Column({ length: 127, unique: true })
+    @Column({ length: 127 })
     email: string
 
-    @Column({ length: 11, unique: true })
+    @Column({ length: 11 })
     phone: string
 
     @Column({ length: 127 })
