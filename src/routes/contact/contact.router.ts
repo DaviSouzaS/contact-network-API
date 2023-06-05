@@ -9,9 +9,12 @@ import { ensureContactExist } from "../../middlewares/ensureContactExist.middlew
 import { readContactController } from "../../controllers/contact/readContact.controller"
 import { ensureClientIsOwnerOfContact } from "../../middlewares/ensureClientIsOwnerOfContact.middleware"
 import { readContactsController } from "../../controllers/contact/readContacts.controller"
+import { updateContactController } from "../../controllers/contact/updateContact.controller"
+import { updateContactSchema } from "../../schemas/contact/updateContact.schemas"
 
 export const contactRouter: Router = Router()
 
 contactRouter.post('/:id', validateToken, ensureClientExist, ensureClientIsOwner, validateData(createContactSchema),createContactController)
 contactRouter.get('/:id', validateToken, ensureContactExist, ensureClientIsOwnerOfContact, readContactController),
 contactRouter.get('/all/:id', validateToken, ensureClientExist, ensureClientIsOwner, readContactsController)
+contactRouter.patch('/:id', validateToken, ensureContactExist, ensureClientIsOwnerOfContact, validateData(updateContactSchema), updateContactController)
