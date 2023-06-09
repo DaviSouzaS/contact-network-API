@@ -1,6 +1,7 @@
 import { AppDataSource } from "../../data-source"
 import { Repository } from "typeorm"
 import { Client, Contact } from "../../entities"
+import { iCreateContactReturn } from "../../interfaces/contact/createContact.interface"
 
 export const createContactService = async (clientId: number, payload: Contact): Promise<Contact> => {
     
@@ -19,7 +20,11 @@ export const createContactService = async (clientId: number, payload: Contact): 
 
     const contact: Contact = contactRepo.create(payload)
 
-    await contactRepo.save({clientId, ...contact})
-    
-    return contact
+    const contactReturn: iCreateContactReturn = {clientId, ...contact}
+
+    await contactRepo.save(contactReturn)
+
+    delete contactReturn.clientId
+
+    return contactReturn
 }
