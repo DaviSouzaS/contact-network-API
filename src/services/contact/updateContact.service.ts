@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data-source"
+import AppDataSource from "../../data-source"
 import { Repository } from "typeorm"
 import { Contact } from "../../entities"
 import { iUpdateContact } from "../../interfaces/contact/updateContact.interface"

@@ -1,5 +1,5 @@
 import { iLoginClient } from "../../interfaces/client/loginClient.interface"
-import { AppDataSource } from "../../data-source"
+import AppDataSource from "../../data-source"
 import { Repository } from "typeorm"
 import { AppError } from "../../error"
 import { Client } from "../../entities"

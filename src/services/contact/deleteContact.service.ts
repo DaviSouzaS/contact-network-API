@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data-source"
+import AppDataSource from "../../data-source"
 import { Contact } from "../../entities"
 
 export const deleteContactService = async (id: number): Promise<void> => {
