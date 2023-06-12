@@ -1,5 +1,5 @@
 import { iCreateClient } from "../../interfaces/client/createClient.interface"
-import { AppDataSource } from "../../data-source"
+import AppDataSource from "../../data-source"
 import { Repository } from "typeorm"
 import { Client } from "../../entities"
 

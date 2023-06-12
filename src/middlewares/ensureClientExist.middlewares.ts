@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express"
-import { AppDataSource } from "../data-source"
+import AppDataSource from "../data-source"
 import { Repository } from "typeorm"
 import { AppError } from "../error"
 import { Client } from "../entities"

@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data-source"
+import AppDataSource from "../../data-source"
 import { Repository } from "typeorm"
 import { Client } from "../../entities"
 import { iUpdateClient } from "../../interfaces/client/updateClient.interface"

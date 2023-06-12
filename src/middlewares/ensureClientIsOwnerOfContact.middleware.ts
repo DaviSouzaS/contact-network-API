@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express"
 import { AppError } from "../error"
 import { Contact } from "../entities"
 import { Repository } from "typeorm"
-import { AppDataSource } from "../data-source"
+import AppDataSource from "../data-source"
 
 export const ensureClientIsOwnerOfContact = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
 
