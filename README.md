@@ -6,4 +6,4 @@ As tecnolgias utilizados no projeto foram: Node JS, TypeScript, Express, express
 
 Link do deploy: https://desafio-fullstack-cm1l.onrender.com
 
-Link para a documentação: https://davisouzas.github.io/projeto-fullstack-documentation/#req_28a2ce88f5834aaea5a1d3e53126f79f
+Link para a documentação: https://davisouzas.github.io/contact-network-API-documentation/
