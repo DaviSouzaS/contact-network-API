@@ -1,4 +1,4 @@
-# desafio-fullstack-API
+# contact-network-API
 
 Este projeto é uma aplicação que tem como objetivo ser uma agenda de contatos. A API permite a criação de um cliente, e cada cliente pode ter diversos contatos. Somente o criador do contato pode realizar qualquer operação do CRUD de contatos. 
 
